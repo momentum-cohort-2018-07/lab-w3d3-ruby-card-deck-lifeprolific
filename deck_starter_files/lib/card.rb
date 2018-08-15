@@ -4,7 +4,7 @@ class Card
 
   def initialize(rank, suit)
 
-    @ranks = [:a, 2, 3, 4, 5, 6, 7, 8, 9, 10, :J, :Q, :K]
+    @ranks = [:A, 2, 3, 4, 5, 6, 7, 8, 9, 10, :J, :Q, :K]
     @suits = [:clubs, :diamonds, :hearts, :spades]
 
     if @ranks.include?(rank)
@@ -21,14 +21,15 @@ class Card
   end
 
   def greater_than?(other_card)
-    puts "this card's rank value is "
-    puts @ranks.find_index(@rank)
-    puts "this card's rank value is "
-    puts @suits.find_index(@suit)
-    puts "other card's rank value is "
-    puts @ranks.find_index(other_card.rank)
-    puts "other card's rank value is "
-    puts @suits.find_index(other_card.suit)
-
+    greater_rank = @ranks.find_index(@rank) > @ranks.find_index(other_card.rank)
+    equal_rank = @ranks.find_index(@rank) === @ranks.find_index(other_card.rank)
+    greater_suit = @suits.find_index(@suit) > @suits.find_index(other_card.suit)
+    if greater_rank
+      true
+    elsif equal_rank && greater_suit
+      true
+    else
+      false
+    end
   end
 end
