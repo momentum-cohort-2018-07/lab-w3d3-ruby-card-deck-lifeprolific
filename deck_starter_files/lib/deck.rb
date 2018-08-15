@@ -23,6 +23,15 @@ class Deck
     @cards.shift
   end
 
-  def shuffle
-  end
+  # def shuffle
+  #   prg = Random.new
+  #   split_index = 1
+  #   last_index = @cards.length - 1
+  #   (0..last_index).each do |current_index|
+  #     current_card = @cards[current_index]
+  #     @cards.delete_at(current_index)
+  #     @cards.insert(prg.rand(split_index), current_card)
+  #     split_index += 1
+  #   end
+  # end
 end
